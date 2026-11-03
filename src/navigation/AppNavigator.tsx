@@ -24,6 +24,7 @@ export default function AppNavigator() {
 
   return (
     <Stack.Navigator
+      initialRouteName={user ? 'List' : 'Home'}
       screenOptions={{
         headerStyle: {
           backgroundColor: '#0F172A',

@@ -69,7 +69,10 @@ export default function LoginScreen() {
     setSubmitting(true);
     try {
       await login(email.trim(), password);
-      navigation.replace('List');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'List' }],
+      });
     } catch (err: any) {
       const message = err.message || 'Authentication failed';
       setAuthError(message);

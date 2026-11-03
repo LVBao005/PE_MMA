@@ -14,7 +14,10 @@ export default function HomeScreen() {
 
   useEffect(() => {
     if (!loading && user) {
-      navigation.replace('List');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'List' }],
+      });
     }
   }, [user, loading, navigation]);
 

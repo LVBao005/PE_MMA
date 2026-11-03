@@ -97,8 +97,11 @@ export default function RegisterScreen() {
       await register(email.trim(), password);
       setSuccessMessage('Registration successful');
       setTimeout(() => {
-        navigation.replace('List');
-      }, 8000);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'List' }],
+        });
+      }, 2500);
     } catch (err: any) {
       const message = err.message || 'Registration failed';
       setAuthError(message);

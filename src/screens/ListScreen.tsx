@@ -65,7 +65,10 @@ export default function ListScreen() {
   // Protect screen: If not logged in and not loading auth, navigate to Home
   useEffect(() => {
     if (!authLoading && !user) {
-      navigation.replace('Home');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
     }
   }, [user, authLoading, navigation]);
 
@@ -109,7 +112,10 @@ export default function ListScreen() {
   const handleLogout = async () => {
     try {
       await logout();
-      navigation.replace('Home');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
     } catch (err: any) {
       Alert.alert('Logout Error', err.message);
     }
