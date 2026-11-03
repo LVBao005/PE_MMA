@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /movies/{movieId} {
+      function isValidMovie(data) {
+        return data.title is string && data.title.trim().size() > 0 && data.title.size() <= 100
+          && data.director is string && data.director.trim().size() > 0 && data.director.size() <= 60
+          && data.genre in ['Action', 'Comedy', 'Drama', 'Horror']
+          && data.status in ['Plan to Watch', 'Watching', 'Watched']
+          && (!('rating' in data) || data.rating == null || (data.rating is int && data.rating >= 0 && data.rating <= 5))
+          && (!('notes' in data) || data.notes == null || (data.notes is string && data.notes.size() <= 300))
+          && data.userId == request.auth.uid;
+      }
+
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && isValidMovie(request.resource.data);
+      allow update: if request.auth != null && resource.data.userId == request.auth.uid && isValidMovie(request.resource.data);
+      allow delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}

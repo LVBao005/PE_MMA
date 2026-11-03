@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "CineList",
+    "slug": "pe-mma",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.lvbao005.cinelist",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F172A",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "be503835-66ea-4615-bf40-a20ca78f6e38"
+      }
+    },
+    "owner": "lvbao005",
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
