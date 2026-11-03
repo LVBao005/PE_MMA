@@ -37,38 +37,31 @@ export default function AppNavigator() {
         },
       }}
     >
-      {!user ? (
-        <>
-          <Stack.Screen 
-            name="Home" 
-            component={HomeScreen} 
-            options={{ headerShown: false }} 
-          />
-          <Stack.Screen 
-            name="Login" 
-            component={LoginScreen} 
-            options={{ title: 'Sign In' }} 
-          />
-          <Stack.Screen 
-            name="Register" 
-            component={RegisterScreen} 
-            options={{ title: 'Create Account' }} 
-          />
-        </>
-      ) : (
-        <>
-          <Stack.Screen 
-            name="List" 
-            component={ListScreen} 
-            options={{ headerShown: false }} 
-          />
-          <Stack.Screen 
-            name="Detail" 
-            component={DetailScreen} 
-            options={{ headerShown: false }} 
-          />
-        </>
-      )}
+      <Stack.Screen 
+        name="Home" 
+        component={HomeScreen} 
+        options={{ headerShown: false }} 
+      />
+      <Stack.Screen 
+        name="Login" 
+        component={LoginScreen} 
+        options={{ title: 'Sign In' }} 
+      />
+      <Stack.Screen 
+        name="Register" 
+        component={RegisterScreen} 
+        options={{ title: 'Create Account' }} 
+      />
+      <Stack.Screen 
+        name="List" 
+        component={ListScreen} 
+        options={{ headerShown: false }} 
+      />
+      <Stack.Screen 
+        name="Detail" 
+        component={DetailScreen} 
+        options={{ headerShown: false }} 
+      />
     </Stack.Navigator>
   );
 }

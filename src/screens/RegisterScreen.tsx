@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ActivityIndicator, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/movie';
@@ -97,7 +98,7 @@ export default function RegisterScreen() {
       setSuccessMessage('Registration successful');
       setTimeout(() => {
         navigation.replace('List');
-      }, 2500);
+      }, 8000);
     } catch (err: any) {
       const message = err.message || 'Registration failed';
       setAuthError(message);
